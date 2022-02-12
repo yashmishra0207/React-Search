@@ -1,0 +1,31 @@
+{
+  "name": "bytedance-assignment-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-modules": "cd server && npm i & cd client && npm i",
+    "dev": "cd server && npm run dev & cd client && npm run start",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.+(js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.3.3",
+    "prettier": "^2.5.1"
+  }
+}
