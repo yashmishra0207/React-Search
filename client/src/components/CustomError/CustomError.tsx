@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from "./CustomError.module.css";
 
 interface PropsInterface {
   message?: string;
@@ -6,14 +7,14 @@ interface PropsInterface {
 }
 
 const CustomError: React.FC<PropsInterface> = ({message, description}) => (
-  <div>
-    <h3>{message}</h3>
-    {description && <p>{description}</p>}
+  <div className={styles.main}>
+    <h3 className={styles.message}>{message}</h3>
+    {description && <p className={styles.description}>{description}</p>}
   </div>
 );
 
 CustomError.defaultProps = {
-  message: "Some Error Occured!",
+  message: "Something went wrong!",
   description: '',
 };
 

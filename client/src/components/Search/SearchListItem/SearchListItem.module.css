@@ -1,0 +1,11 @@
+.main {
+  padding: 1rem;
+  border-top: 1px solid var(--white);
+  cursor: pointer;
+  background-color: transparent;
+  transition: all linear 150ms;
+}
+
+.main:hover {
+  background-color: var(--white);
+}

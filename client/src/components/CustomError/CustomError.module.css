@@ -1,0 +1,13 @@
+.main {
+  width: 100%;
+  padding: 1rem;
+  backdrop-filter: blur(var(--strong-blur));
+}
+
+.message {
+  font-size: larger;
+}
+
+.description {
+  margin-top: 0.5rem;
+}

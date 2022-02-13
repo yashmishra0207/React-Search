@@ -1,0 +1,63 @@
+.main {
+  position: relative;
+}
+
+.searchbar-container {
+  position: relative;
+}
+
+.input {
+  color: var(--black);
+  border: 1px solid var(--white);
+  border-radius: 0.5rem 0.5rem 0 0;
+  backdrop-filter: blur(var(--strong-blur));
+  background: transparent;
+  padding: 0.75rem;
+  padding-left: 3rem;
+  font-size: large;
+  width: 100%;
+  outline: none;
+  box-shadow: var(--background-shadow-color-1) 0px 1px 0px,
+    var(--background-shadow-color-1) 0px 8px 24px,
+    var(--background-shadow-color-1) 0px 16px 48px;
+}
+
+.search-icon {
+  position: absolute;
+  height: 100%;
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.search-result-container {
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  z-index: 100;
+}
+
+.search-results-list {
+  position: static;
+  overflow-y: auto;
+  max-height: 100%;
+  backdrop-filter: blur(var(--strong-blur));
+  border-radius: 0 0 0.5rem 0.5rem;
+  border: 1px solid var(--white);
+  box-shadow: var(--background-shadow-color-2) 0px 1px 0px,
+    var(--background-shadow-color-2) 0px 8px 24px,
+    var(--background-shadow-color-2) 0px 16px 48px;
+}
+
+.query-info {
+  background-color: var(--white);
+  color: var(--black);
+  font-size: small;
+  line-height: 1.5rem;
+  padding: 0 1rem;
+}
+
+.no-result-message-container {
+  text-align: center;
+  line-height: 3rem;
+  padding: 0 10px;
+}

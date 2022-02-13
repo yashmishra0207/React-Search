@@ -1,0 +1,61 @@
+.App {
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  background: url("./assets/images/background.jpg") center/cover no-repeat;
+  height: 100vh;
+  width: 100vw;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.search-bar-container {
+  position: relative;
+  max-width: 400px;
+  width: 50%;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.below-search {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.placeholder-image {
+  padding: 2rem;
+  width: 80%;
+}
+
+.quote {
+  font-family: cursive;
+  font-size: larger;
+  text-align: center;
+}
+
+.feature-list-container {
+  margin: 5rem 0;
+  padding: 2rem 1rem;
+  backdrop-filter: blur(var(--strong-blur));
+  border-radius: 1rem;
+  border: 1px solid var(--white);
+  color: var(--black);
+}
+
+.feature-list-container > header {
+  margin-bottom: 0.75rem;
+}
+
+@media screen and (max-width: 674px) {
+  .search-bar-container {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search-bar-container {
+    width: 100%;
+  }
+}

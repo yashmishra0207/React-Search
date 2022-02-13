@@ -7,6 +7,8 @@ import { generateDelay, getDebounceMagic } from "../../../utils/utils";
 import CustomError from "../../CustomError/CustomError";
 import SearchList from "../SearchList/SearchList";
 import SearchListItem from "../SearchListItem/SearchListItem";
+import styles from "./CustomSearchBar.module.css";
+import searchIcon from "../../../assets/icons/search-icon.svg";
 
 interface PropsInterface {
   url: string;
@@ -63,6 +65,7 @@ const CustomSearchBar: React.FC<PropsInterface> = ({
         setIsFetching(false);
         setIsError(false);
         setErrorMessage(undefined);
+        setSearchedQuery("");
       }
     },
     [timer, url]
@@ -102,10 +105,10 @@ const CustomSearchBar: React.FC<PropsInterface> = ({
   );
 
   const displayMessage = (q: string) => (
-    <p>
-      {q
-        ? !isFetching && "No matching string found!"
-        : "Type something to search"}
+    <p className={styles["no-result-message-container"]}>
+      {
+        q && !isFetching && "No matching results!"
+      }
     </p>
   );
 
@@ -116,28 +119,45 @@ const CustomSearchBar: React.FC<PropsInterface> = ({
 
   const showQueryMessage = useMemo(
     () => (q: string) =>
-      `${isFetching ? "Searching for" : "Fetched"}  ${q}, ${
-        isFetching ? "estimated" : "in"
-      }: ${estimatedDelay}ms`,
+      `${isFetching ? "Searching for" : "Fetched"}  "${q}"${
+        isFetching ? ", estimated:" : " in"
+      } ${estimatedDelay ?? '...'}ms`,
     [isFetching, estimatedDelay]
   );
 
   const renderBody = () => (
     <>
-      <span className="query-info">
-        {estimatedDelay !== undefined && query && showQueryMessage(query)}
-      </span>
-      <div className="results">
-        {shouldDisplayList() ? renderList() : displayMessage(query)}
+      <div className={styles["query-info"]}>
+        {
+          query && showQueryMessage(query)
+        }
+      </div>
+      <div className={styles['search-results-list']}>
+        {shouldDisplayList() && query ? renderList() : displayMessage(query)}
       </div>
     </>
   );
 
   return (
-    <>
-      <input type="search" onInput={(e) => handleInput(e)} value={query} />
-      {isError ? <CustomError description={errorMessage} /> : renderBody()}
-    </>
+    <div className={styles.main}>
+      <div className={styles["searchbar-container"]}>
+        <img
+          className={styles["search-icon"]}
+          src={searchIcon}
+          alt="search icon"
+        />
+        <input
+          className={styles.input}
+          type="search"
+          onInput={(e) => handleInput(e)}
+          value={query}
+          placeholder="Type Something..."
+        />
+      </div>
+      <div className={styles["search-result-container"]}>
+        {isError ? <CustomError description={errorMessage} /> : renderBody()}
+      </div>
+    </div>
   );
 };
 
