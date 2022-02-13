@@ -1,16 +1,14 @@
-import SearchItem from '../../Models/SearchItem';
-import searchRoutes from '../api-routes/search.routes';
 import { baseApiService } from './BaseApiService';
 
-const routes = searchRoutes;
+export type ObjectWithIdKey = { id: any; [key: string]: any };
 
 class SearchService {
   static getInstance() {
     return new SearchService();
   }
 
-  async getSearchResults(query: string): Promise<{ data: SearchItem[] }> {
-    return baseApiService.get(routes.search, { params: { query } });
+  async getSearchResults<T extends ObjectWithIdKey>(url: string, query: string): Promise<{ data: T[] }> {
+    return baseApiService.get(url, { params: { query } });
   }
 }
 

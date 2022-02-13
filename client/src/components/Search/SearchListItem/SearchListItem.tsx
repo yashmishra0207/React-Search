@@ -1,11 +1,11 @@
-import React, { memo } from "react";
+import React, { memo, ReactElement } from "react";
 
 interface PropsInterface {
-  text: string;
+  children: ReactElement;
 }
 
-const SearchListItem: React.FC<PropsInterface> = ({text}) => (
-  <div>{text}</div>
+const SearchListItem: React.FC<PropsInterface> = ({ children }) => (
+  <div>{children}</div>
 );
 
 export default memo(SearchListItem);

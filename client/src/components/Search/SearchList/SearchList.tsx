@@ -5,7 +5,7 @@ interface PropsInterface {
   children: ReactElement<typeof SearchListItem>[];
 }
 
-const SearchList: React.FC<PropsInterface> = ({children}) => (
+const SearchList: React.FC<PropsInterface> = ({ children }) => (
   <div>{children}</div>
 );
 

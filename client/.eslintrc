@@ -12,7 +12,7 @@
     "project": "**/tsconfig.json"
   },
   "plugins": ["jsx-a11y", "prettier"],
-  "ignorePatterns": ["./node_modules/"],
+  "ignorePatterns": ["node_modules/"],
   "rules": {
     "react/jsx-filename-extension": [
       1,
@@ -25,6 +25,7 @@
         "unnamedComponents": "arrow-function"
       }
     ],
+    "react/jsx-props-no-spreading": "off",
     "class-methods-use-this": 0,
     "import/prefer-default-export": "off"
   }
